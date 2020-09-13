@@ -10,9 +10,12 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import { Global, css } from '@emotion/core'
 
-import Header from "./header"
+import Header from "./header/header"
 import Footer from "./footer"
 import "./layout.css"
+
+// Hooks
+import useNav from '../hooks/useNav'
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -24,6 +27,9 @@ const Layout = ({ children }) => {
       }
     }
   `)
+
+  // Hooks
+  const { isMobile, subMenuMobile, NavResponsive, MenuLink, SubMenuItem } = useNav()
 
   return (
     <>
@@ -76,11 +82,20 @@ const Layout = ({ children }) => {
         `}
       />
 
-      <Header siteTitle={data.site.siteMetadata.title} />
+      <Header 
+        siteTitle={data.site.siteMetadata.title} 
+        isMobile={ isMobile }
+        NavResponsive={ NavResponsive }
+        MenuLink={ MenuLink }
+        SubMenuItem={ SubMenuItem }
+      />
       <div>
-        <main>{children}</main>
-
-        <Footer />
+        { !subMenuMobile && 
+        <>
+          <main>{children}</main>
+          <Footer />
+        </>
+        }
       </div>
     </>
   )
