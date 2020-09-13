@@ -17,24 +17,54 @@ const IndexPage = () => (
         width: 100%;
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        grid-auto-rows: 230px;
+        /* grid-auto-rows: 230px; */
         gap: 20px;
+
+        div:nth-child(1) {
+          grid-row: 1 / 3;
+        }
+
+        div:nth-child(2) {
+          grid-row: 1 / 3;
+        }
+
+        div:nth-child(3) {
+          grid-row: 1 / 3; 
+          grid-column: 3 / 5;
+        }
+
+        @media (max-width: 800px) {
+          div:nth-child(1) {
+            grid-row: 1 / 3;
+            grid-column: 1 / 3;
+          }
+
+          div:nth-child(2) {
+            grid-row: 1 / 3;
+            grid-column: 3 / 5;
+          }
+
+          div:nth-child(3) {
+            grid-row: 3 / 5; 
+            grid-column: 1 / 5;
+          }
+        }
       `}>
-        <div css={css`background-color: black; grid-row: 1 / 3;`}>
+        <div>
           <Image 
             urlImg='https://i.pinimg.com/236x/37/fc/17/37fc1719bb940e34769726723662b1b5--suede-heels-suede-sandals.jpg' 
             name='Women Shoes'
           ></Image>
         </div>
-        <div css={css`background-color: black; grid-row: 1 / 3;`}>
+        <div>
           <Image 
             urlImg='https://stuffilikenthat.files.wordpress.com/2011/02/2435334263_8bb91cc6e1_z.jpg' 
             name='Men Shoes'
           ></Image>
         </div>
-        <div css={css`background-color: black; grid-row: 1 / 3; grid-column: 3 / 5;`}>
+        <div>
           <Image 
-            urlImg='https://www.dhresource.com/0x0/f2/albu/g7/M01/02/63/rBVaSVu8cPmAWFlmAAHFVXxL6r0635.jpg/fashion-cargo-jackets-men-s-vintage-hooded.jpg' 
+            urlImg='https://thumbnails.yayimages.com/b/379/b37980e.jpg' 
             name="Men's clothing"
           ></Image>
         </div>
@@ -47,23 +77,46 @@ const IndexPage = () => (
         grid-template-columns: repeat(4, 1fr);
         grid-auto-rows: 45px;
         gap: 20px;
+
+        div {
+          grid-row: 1 / 3;
+        }
+
+        @media(max-width: 800px) {
+          div:nth-child(1) {
+            grid-row: 1 / 3;
+            grid-column: 1 / 3;
+          }
+          div:nth-child(2) {
+            grid-row: 1 / 3;
+            grid-column: 3 / 5;
+          }
+          div:nth-child(3) {
+            grid-row: 3 / 5;
+            grid-column: 1 / 3;
+          }
+          div:nth-child(4) {
+            grid-row: 3 / 5;
+            grid-column: 3 / 5;
+          }
+        }
       `}>
-        <div css={css`background-color: white; grid-row: 1 / 3;`}>
+        <div>
           <Brand
             urlImg='https://ipronline.b-cdn.net/wp-content/uploads/2015/04/zara.jpg'
           ></Brand>
         </div>
-        <div css={css`background-color: white; grid-row: 1 / 3;`}>
+        <div>
           <Brand
             urlImg='https://ipronline.b-cdn.net/wp-content/uploads/2015/04/zara.jpg'
           ></Brand>
         </div>
-        <div css={css`background-color: white; grid-row: 1 / 3;`}>
+        <div>
           <Brand
             urlImg='https://ipronline.b-cdn.net/wp-content/uploads/2015/04/zara.jpg'
           ></Brand>
         </div>
-        <div css={css`background-color: white; grid-row: 1 / 3;`}>
+        <div>
           <Brand
             urlImg='https://ipronline.b-cdn.net/wp-content/uploads/2015/04/zara.jpg'
           ></Brand>
@@ -75,30 +128,63 @@ const IndexPage = () => (
         width: 100%;
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        grid-auto-rows: 230px;
+        /* grid-auto-rows: 230px; */
         gap: 20px;
+
+        div:nth-child(1) {
+          grid-row: 1 / 3; 
+          grid-column: 1 / 3;
+        }
+        div:nth-child(2) {
+          grid-row: 1 / 2;
+        }
+        div:nth-child(3) {
+          grid-row: 2 / 3;
+        }
+        div:nth-child(4) {
+          grid-row: 1 / 3;
+        }
+
+        @media (max-width: 800px) {
+          div:nth-child(1) {
+            grid-row: 1 / 3; 
+            grid-column: 1 / 5;
+          }
+          div:nth-child(2) {
+            grid-row: 3 / 4;
+            grid-column: 1 / 3;
+          }
+          div:nth-child(3) {
+            grid-row: 4 / 5;
+            grid-column: 1 / 3;
+          }
+          div:nth-child(4) {
+            grid-row: 3 / 5;
+            grid-column: 3 / 5;
+          }
+        }
       `}>
-        <div css={css`background-color: black; grid-row: 1 / 3; grid-column: 1 / 3;`}>
+        <div>
           <Image 
-            urlImg='https://www.worldbalance.com.ph/pub/media/wysiwyg/shoes.jpg' 
+            urlImg='https://image.freepik.com/free-photo/men-fashion-office-shoes-yellow-background_107612-347.jpg' 
             name="Alexander McQueen"
           ></Image>
         </div>
-        <div css={css`background-color: black; grid-row: 1 / 2;`}>
+        <div>
           <Image 
             urlImg='https://www.worldbalance.com.ph/pub/media/wysiwyg/shoes.jpg' 
             text="Alexander McQueen"
           ></Image>
         </div>
-        <div css={css`background-color: black; grid-row: 2 / 3;`}>
+        <div>
           <Image 
             urlImg='https://www.worldbalance.com.ph/pub/media/wysiwyg/shoes.jpg' 
             text="Off white"
           ></Image>
         </div>
-        <div css={css`background-color: black; grid-row: 1 / 3;`}>
+        <div>
           <Image 
-            urlImg='https://www.worldbalance.com.ph/pub/media/wysiwyg/shoes.jpg' 
+            urlImg='https://i.pinimg.com/564x/14/2b/06/142b06ace026df28ff8ec31741c05545.jpg' 
             text="Alexander McQueen"
           ></Image>
         </div>
@@ -108,8 +194,12 @@ const IndexPage = () => (
         margin-top: 20px;
         display: grid;
         grid-template-columns: 1fr 1fr;
-        grid-auto-rows: 480px;
+        /* grid-auto-rows: 480px; */
         gap: 20px;
+
+        @media(max-width: 980px) {
+          grid-template-columns: 1fr;
+        }
       `}>
         <div css={css`
           background-color: #0f4c81; 

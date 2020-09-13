@@ -11,7 +11,7 @@ const Container = styled(Link)`
 
     img {
         width: 100%;
-        min-height: 100%;
+        height: 100%;
         -webkit-transition:all .9s ease; /* Safari y Chrome */
         -moz-transition:all .9s ease; /* Firefox */
         -o-transition:all .9s ease; /* IE 9 */
