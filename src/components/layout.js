@@ -35,6 +35,12 @@ const Layout = ({ children }) => {
     <>
       <Global
         styles={css`
+          @media (max-width: 600px) {
+            html {
+              font-size: 45% !important;
+            }
+          }
+
           html {
             font-size: 62.5%;
             box-sizing: border-box;

@@ -17,7 +17,7 @@ const IndexPage = () => (
         width: 100%;
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        /* grid-auto-rows: 230px; */
+        grid-auto-rows: 15vw;
         gap: 20px;
 
         div:nth-child(1) {
@@ -34,6 +34,8 @@ const IndexPage = () => (
         }
 
         @media (max-width: 800px) {
+          grid-auto-rows: 35vw;
+
           div:nth-child(1) {
             grid-row: 1 / 3;
             grid-column: 1 / 3;
@@ -83,6 +85,8 @@ const IndexPage = () => (
         }
 
         @media(max-width: 800px) {
+          grid-auto-rows: 30px;
+
           div:nth-child(1) {
             grid-row: 1 / 3;
             grid-column: 1 / 3;
@@ -128,7 +132,7 @@ const IndexPage = () => (
         width: 100%;
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        /* grid-auto-rows: 230px; */
+        grid-auto-rows: 15vw;
         gap: 20px;
 
         div:nth-child(1) {
@@ -146,6 +150,8 @@ const IndexPage = () => (
         }
 
         @media (max-width: 800px) {
+          grid-auto-rows: 35vw;
+
           div:nth-child(1) {
             grid-row: 1 / 3; 
             grid-column: 1 / 5;
@@ -172,13 +178,13 @@ const IndexPage = () => (
         </div>
         <div>
           <Image 
-            urlImg='https://www.worldbalance.com.ph/pub/media/wysiwyg/shoes.jpg' 
+            urlImg='https://www.affordable.pk/uploads/products/14755987490_53ffccef9d24c070106f1bd0c779880d_(1).jpg' 
             text="Alexander McQueen"
           ></Image>
         </div>
         <div>
           <Image 
-            urlImg='https://www.worldbalance.com.ph/pub/media/wysiwyg/shoes.jpg' 
+            urlImg='https://image.freepik.com/free-photo/men-s-feet-sport-shoes-white-socks_78967-531.jpg' 
             text="Off white"
           ></Image>
         </div>
@@ -229,7 +235,7 @@ const IndexPage = () => (
           overflow: hidden;
 
           img {
-            height: 100%;
+            min-height: 100%;
             min-width: 100%;
           }
         `}>

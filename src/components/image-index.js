@@ -10,8 +10,8 @@ const Container = styled(Link)`
     overflow: hidden;
 
     img {
-        width: 100%;
-        height: 100%;
+        min-height: 100%;
+        min-width: 100%;
         -webkit-transition:all .9s ease; /* Safari y Chrome */
         -moz-transition:all .9s ease; /* Firefox */
         -o-transition:all .9s ease; /* IE 9 */
