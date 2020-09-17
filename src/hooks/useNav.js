@@ -249,6 +249,7 @@ const useNav = () => {
     const SubMenuList = (props) => {
     
         const { name, back, textTop, secondLevelOnly, urlImagen } = props
+        console.log('debug hook', props.children[1][0])
         
         return (
             <Menu>
@@ -293,13 +294,13 @@ const useNav = () => {
                                 }
                             `}>
                             { !secondLevelOnly &&
-                                <>{ props.children.map(elemento => { if (elemento.type === "li") return elemento}) }</>
+                                <>{ props.children[0][0].map(elemento => { if (elemento.type === "li") return elemento}) }</>
                             }
                             </ul>
                         </div>
                         }
     
-                        { props.children.map(elemento => { if (elemento.type !== "li") return elemento}) }
+                        { props.children[1].map(elemento => { if (elemento.type !== "li") return elemento}) }
     
                         {/* Show the image */}
                         { (!isMobile && urlImagen) && 

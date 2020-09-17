@@ -20,15 +20,15 @@ const IndexPage = () => (
         grid-auto-rows: 15vw;
         gap: 20px;
 
-        div:nth-child(1) {
+        div:nth-of-type(1) {
           grid-row: 1 / 3;
         }
 
-        div:nth-child(2) {
+        div:nth-of-type(2) {
           grid-row: 1 / 3;
         }
 
-        div:nth-child(3) {
+        div:nth-of-type(3) {
           grid-row: 1 / 3; 
           grid-column: 3 / 5;
         }
@@ -36,17 +36,17 @@ const IndexPage = () => (
         @media (max-width: 800px) {
           grid-auto-rows: 35vw;
 
-          div:nth-child(1) {
+          div:nth-of-type(1) {
             grid-row: 1 / 3;
             grid-column: 1 / 3;
           }
 
-          div:nth-child(2) {
+          div:nth-of-type(2) {
             grid-row: 1 / 3;
             grid-column: 3 / 5;
           }
 
-          div:nth-child(3) {
+          div:nth-of-type(3) {
             grid-row: 3 / 5; 
             grid-column: 1 / 5;
           }
@@ -87,19 +87,19 @@ const IndexPage = () => (
         @media(max-width: 800px) {
           grid-auto-rows: 30px;
 
-          div:nth-child(1) {
+          div:nth-of-type(1) {
             grid-row: 1 / 3;
             grid-column: 1 / 3;
           }
-          div:nth-child(2) {
+          div:nth-of-type(2) {
             grid-row: 1 / 3;
             grid-column: 3 / 5;
           }
-          div:nth-child(3) {
+          div:nth-of-type(3) {
             grid-row: 3 / 5;
             grid-column: 1 / 3;
           }
-          div:nth-child(4) {
+          div:nth-of-type(4) {
             grid-row: 3 / 5;
             grid-column: 3 / 5;
           }
@@ -135,36 +135,36 @@ const IndexPage = () => (
         grid-auto-rows: 15vw;
         gap: 20px;
 
-        div:nth-child(1) {
+        div:nth-of-type(1) {
           grid-row: 1 / 3; 
           grid-column: 1 / 3;
         }
-        div:nth-child(2) {
+        div:nth-of-type(2) {
           grid-row: 1 / 2;
         }
-        div:nth-child(3) {
+        div:nth-of-type(3) {
           grid-row: 2 / 3;
         }
-        div:nth-child(4) {
+        div:nth-of-type(4) {
           grid-row: 1 / 3;
         }
 
         @media (max-width: 800px) {
           grid-auto-rows: 35vw;
 
-          div:nth-child(1) {
+          div:nth-of-type(1) {
             grid-row: 1 / 3; 
             grid-column: 1 / 5;
           }
-          div:nth-child(2) {
+          div:nth-of-type(2) {
             grid-row: 3 / 4;
             grid-column: 1 / 3;
           }
-          div:nth-child(3) {
+          div:nth-of-type(3) {
             grid-row: 4 / 5;
             grid-column: 1 / 3;
           }
-          div:nth-child(4) {
+          div:nth-of-type(4) {
             grid-row: 3 / 5;
             grid-column: 3 / 5;
           }
