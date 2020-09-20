@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 import { Link } from "gatsby"
+import Image from 'gatsby-image'
  
 // Hooks
 import useWindowDimensions from './useWindowDimensions'
@@ -44,6 +45,7 @@ const Menu = styled.div`
             }
 
             div:nth-of-type(2), div:nth-of-type(3), div:nth-of-type(4) {
+                height: 280px;
                 border-left: 1px solid #ccc;
                 padding-left: 8%;
             }
@@ -217,7 +219,9 @@ const useNav = () => {
     }
     const MenuLink = (props) => {
 
-        const { name, identifier, subIdentifiers, secondLevelOnly, urlImagen } = props
+        const { name, slug, identifier, subIdentifiers, secondLevelOnly, image } = props
+
+        console.log('useNav / MenuLink - slug', slug)
     
         return (
             <li onMouseEnter={() => setSubMenu(identifier)}>
@@ -225,7 +229,7 @@ const useNav = () => {
                 ?
                     <button onClick={() => {setSubMenuMobile(identifier)}}>{name}</button>
                 :
-                    <NavLink to="#" className={(subMenu === identifier) && "selected"}>{name}</NavLink>
+                    <NavLink to={`/${ slug }`} className={(subMenu === identifier) && "selected"}>{name}</NavLink>
                 }
     
     
@@ -235,10 +239,11 @@ const useNav = () => {
                         isMobile={ isMobile }
                         setSubMenuMobile={ setSubMenuMobile }
                         name={ name }
+                        slug={ slug }
                         back="main"
                         textTop={ identifier }
                         secondLevelOnly={ secondLevelOnly }
-                        urlImagen={ urlImagen }
+                        image={ image }
                     >
                         { props.children }
                     </SubMenuList>
@@ -248,7 +253,7 @@ const useNav = () => {
     }
     const SubMenuList = (props) => {
     
-        const { name, back, textTop, secondLevelOnly, urlImagen } = props
+        const { name, slug, back, textTop, secondLevelOnly, image } = props
         console.log('debug hook', props.children[1][0])
         
         return (
@@ -260,7 +265,7 @@ const useNav = () => {
                         <div>
                             { !isMobile
                             ? 
-                                <Link to="/" className="principal">{ name }</Link>
+                                <Link to={`/${ slug }`} className="principal">{ name }</Link>
                             : 
                                 <div css={css`
                                     background-color: #BCB2A2;    
@@ -281,7 +286,7 @@ const useNav = () => {
                                             text-transform: uppercase;
                                         }
                                     `}>
-                                        <span css={css`width: 20%`} onClick={() => { setSubMenuMobile(back) }}>Atras</span>
+                                        <span css={css`width: 20%;`} onClick={() => { setSubMenuMobile(back) }}>Atras</span>
                                         <p>{ textTop }</p>
                                         <span css={css`width: 20%; display: flex; justify-content: flex-end;`} onClick={() => { setSubMenuMobile(null)}}>X</span>
                                     </div>
@@ -303,7 +308,7 @@ const useNav = () => {
                         { props.children[1].map(elemento => { if (elemento.type !== "li") return elemento}) }
     
                         {/* Show the image */}
-                        { (!isMobile && urlImagen) && 
+                        { (!isMobile && image) && 
                             <span css={css`
                                 width: 250px !important;
                                 height: 250px;
@@ -312,11 +317,20 @@ const useNav = () => {
                                 align-items: center;
                                 overflow: hidden;
 
-                                img {
-                                    width: 100%;
+                                div {
+                                    width: 100% !important;
+
+                                    img {
+                                        max-width: 100%;
+                                    }
                                 }
+
+                                
                             `}>
-                                <img src={ urlImagen } alt='name' />
+                                {/* <img src={ urlImagen } alt='name' /> */}
+                                <Image 
+                                    fluid={image.sharp.fluid}
+                                />
                             </span>
                         }
                     </div>

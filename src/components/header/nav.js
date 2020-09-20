@@ -12,16 +12,21 @@ const Nav = ({ isMobile, NavResponsive, MenuLink, SubMenuItem }) => {
         allStrapiCategory: { nodes: categories }
     } = useStaticQuery(graphql`
         query {
-            allStrapiGroupCategory {
+            allStrapiGroupCategory(sort: {fields: id, order: ASC}) {
                 nodes {
                     id
                     name
+                    slug
                     categories {
                         name
                         id
                     }
                     image {
-                        relativePath
+                        sharp: childImageSharp {
+                            fluid (maxWidth: 600) {
+                                ...GatsbyImageSharpFluid_withWebp
+                            }
+                        }
                     }
                 }
             }
@@ -46,8 +51,8 @@ const Nav = ({ isMobile, NavResponsive, MenuLink, SubMenuItem }) => {
     `)
 
     // console.log(groupCategories)
-    console.log("groupCategories,", groupCategories)
-    console.log("categories,", categories)
+    console.log("nav.js - groupCategories,", groupCategories)
+    console.log("nav.js - categories,", categories)
 
     
 
@@ -59,9 +64,10 @@ const Nav = ({ isMobile, NavResponsive, MenuLink, SubMenuItem }) => {
                 <MenuLink
                     key={ groupCategory.id }
                     name={ groupCategory.name }
+                    slug={ groupCategory.slug }
                     identifier={ groupCategory.name }
                     subIdentifiers={ categories.filter(c => (c.group_category.name === groupCategory.name)).map(cat => (cat.name)) }
-                    urlImagen={ groupCategory.image.relativeDirectory }
+                    image={ groupCategory.image }
                 >
 
                 { categories.filter(c => (c.name === groupCategory.name)).map(categoryShow => (

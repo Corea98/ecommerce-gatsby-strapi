@@ -1,6 +1,10 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
+import { graphql, useStaticQuery } from 'gatsby'
+import Image from 'gatsby-image'
+
+
 
 const Container = styled(Link)`
     height: 100%;
@@ -9,13 +13,23 @@ const Container = styled(Link)`
     display: block;
     overflow: hidden;
 
+    div:nth-of-type(1) {
+        height: 100%;
+        width: 100%;
+        top: 0%;
+
+        div:nth-of-type(1) {
+            position: static !important;
+        }
+    }
+
     img {
         min-height: 100%;
         min-width: 100%;
-        -webkit-transition:all .9s ease; /* Safari y Chrome */
-        -moz-transition:all .9s ease; /* Firefox */
-        -o-transition:all .9s ease; /* IE 9 */
-        -ms-transition:all .9s ease; /* Opera */
+        -webkit-transition:all .9s ease  !important; /* Safari y Chrome */
+        -moz-transition:all .9s ease  !important; /* Firefox */
+        -o-transition:all .9s ease  !important; /* IE 9 */
+        -ms-transition:all .9s ease  !important; /* Opera */
     }
 
     span {
@@ -90,12 +104,49 @@ const Container = styled(Link)`
     }
 `
 
-const Image = ({ urlImg, name, text }) => {
+const ImageIndex = ({ urlImg, name, text }) => {
+
+    const { allStrapiGroupCategory: { nodes: groupCategories } } = useStaticQuery(graphql`
+        query  {
+            allStrapiGroupCategory {
+                nodes {
+                    id
+                    name
+                    image {
+                        sharp: childImageSharp {
+                            fluid (maxWidth: 600) {
+                                ...GatsbyImageSharpFluid_withWebp
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    `)
+
+    console.log('image-index', groupCategories)
+
+    const groupCategory = groupCategories.filter(gc => (gc.name === name))[0]
+
+    if (!urlImg) console.log('alsdf', groupCategory)
 
 
     return (
         <Container to='/women-shoes'>
-            <img src={ urlImg } alt={ name } />
+            { urlImg 
+            ?
+                <img src={ urlImg } alt={ name } />
+            :
+                <>
+                { groupCategory &&
+                    <div>
+                        <Image fluid={ groupCategory.image.sharp.fluid } />
+                    </div>
+                }
+                </>
+            }
+
+            
             { name && 
                 <span>
                     <h1>{ name }</h1>
@@ -113,4 +164,4 @@ const Image = ({ urlImg, name, text }) => {
 }
 
 
-export default Image
+export default ImageIndex

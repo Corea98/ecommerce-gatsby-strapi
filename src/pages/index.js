@@ -4,7 +4,7 @@ import { css } from '@emotion/core'
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Image from '../components/image-index'
+import ImageIndex from '../components/image-index'
 import Brand from '../components/brand-index'
 
 const IndexPage = () => (
@@ -53,22 +53,22 @@ const IndexPage = () => (
         }
       `}>
         <div>
-          <Image 
-            urlImg='https://i.pinimg.com/236x/37/fc/17/37fc1719bb940e34769726723662b1b5--suede-heels-suede-sandals.jpg' 
-            name='Women Shoes'
-          ></Image>
+          <ImageIndex 
+            urlImg={ null }
+            name='Women shoes'
+          ></ImageIndex>
         </div>
         <div>
-          <Image 
-            urlImg='https://stuffilikenthat.files.wordpress.com/2011/02/2435334263_8bb91cc6e1_z.jpg' 
-            name='Men Shoes'
-          ></Image>
+          <ImageIndex 
+            urlImg={ null } 
+            name='Men shoes' 
+          ></ImageIndex>
         </div>
         <div>
-          <Image 
-            urlImg='https://thumbnails.yayimages.com/b/379/b37980e.jpg' 
-            name="Men's clothing"
-          ></Image>
+          <ImageIndex 
+            urlImg={ null } 
+            name="Men clothing"
+          ></ImageIndex>
         </div>
       </div>
 
@@ -171,28 +171,28 @@ const IndexPage = () => (
         }
       `}>
         <div>
-          <Image 
+          <ImageIndex 
             urlImg='https://image.freepik.com/free-photo/men-fashion-office-shoes-yellow-background_107612-347.jpg' 
             name="Alexander McQueen"
-          ></Image>
+          ></ImageIndex>
         </div>
         <div>
-          <Image 
+          <ImageIndex 
             urlImg='https://www.affordable.pk/uploads/products/14755987490_53ffccef9d24c070106f1bd0c779880d_(1).jpg' 
             text="Alexander McQueen"
-          ></Image>
+          ></ImageIndex>
         </div>
         <div>
-          <Image 
+          <ImageIndex 
             urlImg='https://image.freepik.com/free-photo/men-s-feet-sport-shoes-white-socks_78967-531.jpg' 
             text="Off white"
-          ></Image>
+          ></ImageIndex>
         </div>
         <div>
-          <Image 
+          <ImageIndex 
             urlImg='https://i.pinimg.com/564x/14/2b/06/142b06ace026df28ff8ec31741c05545.jpg' 
             text="Alexander McQueen"
-          ></Image>
+          ></ImageIndex>
         </div>
       </div>
 
