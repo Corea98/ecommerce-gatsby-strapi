@@ -76,6 +76,11 @@ const Layout = ({ children }) => {
             text-decoration: none;
           }
 
+          input[type="checkbox"] {
+            margin: 0;
+            padding: 0;
+          }
+
           .container {
             max-width: 135rem;
             margin: 0 auto;

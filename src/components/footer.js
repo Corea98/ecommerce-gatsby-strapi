@@ -5,6 +5,7 @@ import {Link} from 'gatsby'
 
 // Hooks
 import useWindowDimensions from '../hooks/useWindowDimensions'
+import useMenu from '../hooks/useMenu'
 
 const ButtonLink = styled(Link)`
     background-color: #0f4c81;
@@ -65,6 +66,7 @@ const Footer = () => {
     const [ isMobile, setIsMobile ] = useState(false)
 
     // Hooks
+    const { MenuFooter } = useMenu()
     const { width } = useWindowDimensions()
     useEffect(() => {
         setIsMobile(width <= 900)
@@ -126,7 +128,7 @@ const Footer = () => {
                         `}>25685 reviews</span>
                     </div>
 
-                    <FooterGroup
+                    <MenuFooter
                         title='Customer service'
                         isMobile={isMobile}
                     >
@@ -140,9 +142,9 @@ const Footer = () => {
                             <li><Link to="/">Complaints & Warranty</Link></li>
                             <li><Link to="/">Maintenance</Link></li>
                         </ul>
-                    </FooterGroup>
+                    </MenuFooter>
 
-                    <FooterGroup
+                    <MenuFooter
                         title='Ecommerce'
                         isMobile={isMobile}
                     >
@@ -150,12 +152,12 @@ const Footer = () => {
                             <li><Link to="/">About Ecommerce</Link></li>
                             <li><Link to="/">Our Stores</Link></li>
                             <li><Link to="/">Cookie information</Link></li>
-                            <li><Link to="/">Pribacy & AVG legislation</Link></li>
+                            <li><Link to="/">Privacy & AVG legislation</Link></li>
                             <li><Link to="/">Terms and Conditions</Link></li>
                         </ul>
-                    </FooterGroup>
+                    </MenuFooter>
 
-                    <FooterGroup
+                    <MenuFooter
                         title='Winkels'
                         isMobile={isMobile}
                     >
@@ -165,7 +167,7 @@ const Footer = () => {
                             <li><Link to="/">Ecommerce Utrecht</Link></li>
                             <li><Link to="/">OBLIQUE Utrecht</Link></li>
                         </ul>
-                    </FooterGroup>
+                    </MenuFooter>
 
                     <div css={css`
                         @media (max-width: 900px) {
@@ -199,70 +201,6 @@ const Footer = () => {
     );
 }
 
-const FooterGroup = (props) => {
 
-    const { title, isMobile } = props
-
-    // States
-    const [ show, setShow ] = useState(false)
-
-    return (
-        <div css={css`
-            div > span {
-                display: none;
-            }
-
-            @media (max-width: 900px) {
-
-                & > div {
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
- 
-                    &:hover {
-                        cursor: pointer;
-                    }
-                }
-
-                div > span {
-                    display: block;
-                }
-
-                ul {
-                    margin-bottom: 20px;
-                }
-            }
-        `}>
-            <div onClick={() => setShow(!show)}>
-                <p>{ title }</p>
-                <span>Show more</span>
-            </div>
-            
-
-            { (show || !isMobile) && 
-            <>
-                { props.children }
-            </>
-            }
-
-            { isMobile && 
-                <hr css={css`
-                    width: 100vw;
-                    position: relative;
-                    left: 50%;
-                    right: 50%;
-                    margin-left: -50vw;
-                    margin-right: -50vw;
-
-                    height: 2px;
-                    border: 0;
-                    background-color: white;
-                `}></hr>
-            }
-
-            
-        </div>
-    )
-}
  
 export default Footer;

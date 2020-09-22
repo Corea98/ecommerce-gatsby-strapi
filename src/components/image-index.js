@@ -112,6 +112,7 @@ const ImageIndex = ({ urlImg, name, text }) => {
                 nodes {
                     id
                     name
+                    slug
                     image {
                         sharp: childImageSharp {
                             fluid (maxWidth: 600) {
@@ -132,7 +133,7 @@ const ImageIndex = ({ urlImg, name, text }) => {
 
 
     return (
-        <Container to='/women-shoes'>
+        <Container to={urlImg ? '/' : `/${ groupCategory.slug }`}>
             { urlImg 
             ?
                 <img src={ urlImg } alt={ name } />

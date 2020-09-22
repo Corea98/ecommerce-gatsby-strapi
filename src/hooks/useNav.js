@@ -406,7 +406,7 @@ const useNav = () => {
                                         text-transform: uppercase;
                                     }
                                 `}>
-                                    <span css={css`width: 20%`} onClick={() => { setSubMenuMobile( back ) }}>Atras</span>
+                                    <span css={css`width: 20%;`} onClick={() => { setSubMenuMobile( back ) }}>Atras</span>
                                     <p>{ textTop }</p>
                                     <span css={css`width: 20%; display: flex; justify-content: flex-end;`} onClick={() => { setSubMenuMobile(null)}}>X</span>
                                 </div>
